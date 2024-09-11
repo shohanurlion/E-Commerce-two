@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+.slick-dots .slick-active div{
+    border-right: 3px solid #222 !important;
+    color:#222 !important
+}

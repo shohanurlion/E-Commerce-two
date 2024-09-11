@@ -1,0 +1,27 @@
+/* Navbar.css */
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    }
+    
+    .navbar.sticky {
+    position: fixed;
+    background-color: white; /* Change this to your desired background color */
+    -webkit-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 6px 13px 0px rgba(0,0,0,0.75);
+    background-color:#f0e9da;
+    animation: ami 2s;
+    z-index: 999;
+    }
+    @keyframes ami{
+    0%{
+    top:-30px;
+    }
+    100%{
+    top:-0px;
+    }
+    }
