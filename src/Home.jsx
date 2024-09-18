@@ -10,7 +10,6 @@ const Home = () => {
     <Banner/>
     <Offerproduct/>
     <Newarrival/>
-    <Recart/>
    </>
   )
 }
