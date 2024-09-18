@@ -65,8 +65,8 @@ const handleallproduct = () =>{
   return (
     <>
     <Container>
-    <div className='flex '>
-        <div className='w-[20%]'>
+    <div className='lg:flex '>
+        <div className='w-[100%] lg:w-[20%] px-2 lg:px-0'>
           <div className=''>
           <div className='flex items-center justify-between cursor-pointer' onClick={()=>setcatagorys(!catagorys)}>
             <h3 className='text-[18px] font-bold'>All Catagory</h3>
@@ -100,8 +100,8 @@ const handleallproduct = () =>{
          
           
         </div>
-        <div className='w-[80%]'>
-          <div className='flex justify-between flex-wrap'>
+        <div className='w-[100%] lg:w-[80%]'>
+          <div className='flex justify-center md:flex lg:justify-between flex-wrap'>
             <Cart allpage={allpage} cateFilter={cateFilter} brnadFilters={brnadFilters}/>
           </div>
           <Pagination pageNumber={pageNumber} pagehandel={pagehandel} next={next} prev={prev}/>
