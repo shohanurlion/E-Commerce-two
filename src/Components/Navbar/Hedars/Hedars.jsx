@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Container from '../../Container'
 import { FaBarsStaggered } from "react-icons/fa6";
 import { MdSupervisorAccount } from "react-icons/md";
@@ -7,18 +7,24 @@ import { useRef } from 'react';
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from 'react-redux';
 import { productremove } from '../../Slice/ProductSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaSearch } from "react-icons/fa";
+import { ApiData } from '../../ContextApi';
 
 const Hedars = (i) => {
-  const dispatch= useDispatch()
+  const data = useContext(ApiData)
+  const dispatch = useDispatch()
   const cartinfo = useSelector((state) => state.product.cartitem)
   const [category, setcategory] = useState(false)
+  const [searchcange, setsearchchange] = useState("")
+  const [searchFilter, setsearchFilter] = useState([])
   const [login, setlogin] = useState(false)
   const [cart, setcart] = useState(false)
+  const usenaviget = useNavigate()
   const useRafs = useRef()
   const logRafs = useRef()
   const cartbox = useRef()
-  const carstikiref =useRef()
+  const carstikiref = useRef()
 
 
   useEffect(() => {
@@ -39,7 +45,7 @@ const Hedars = (i) => {
       } else {
         setcart(false)
       }
-      if(carstikiref.current.contains(e.target)){
+      if (carstikiref.current.contains(e.target)) {
         setcart(true)
       }
     });
@@ -47,11 +53,30 @@ const Hedars = (i) => {
 
   }, [category, login, cart])
 
-  const {totalPrice}=cartinfo.reduce((acc, item)=>{
+  const { totalPrice } = cartinfo.reduce((acc, item) => {
     acc.totalPrice += Math.ceil(item.price * item.qun)
     return acc
-   },{totalPrice:0})
+  }, { totalPrice: 0 })
 
+  const handelsearch = (e) => {
+    setsearchchange(e.target.value);
+    if (e.target.value === "") {
+      setsearchFilter([])
+    } else {
+      const searchone = data.filter((item) =>
+        item.title.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+      setsearchFilter(searchone);
+    }
+
+  };
+
+const handlesearchproduct =(id)=>{
+  usenaviget(`/shop/${id}`)
+  setsearchFilter([])
+  setsearchchange("")
+  
+}
   return (
     <>
       <div className='py-5 px-2 mt-14'>
@@ -76,9 +101,32 @@ const Hedars = (i) => {
             </div>
 
 
-            <div className='w-2/4'>
-              <input type='text' placeholder='Search Products...' className='w-[100%] border py-2 px-2' />
+            <div className='w-2/4 relative'>
+              <div className='relative'>
+                <input onChange={handelsearch} type='text' placeholder='Search Products...' value={searchcange} className='w-[100%] border py-2 px-2' />
+                <div className=' absolute top-[50%] translate-y-[-50%] right-10'>
+                  <FaSearch />
+                </div>
+              </div>
+              {searchFilter.length > 0 &&
+                <div className=' absolute left-0 top-[44px] w-[500px] h-[400px] overflow-y-scroll z-50 '>
+                  {searchFilter.map((item) => (
+
+                    <div onClick={()=>handlesearchproduct(item.id)} className='flex justify-between items-center bg-[#F5F5F3] py-5 px-5'>
+                      <div>
+                        <img className='w-[80px] h-[80px]' src={item.thumbnail} alt='cartimg' />
+                      </div>
+                      <div>
+                        <h4>{item.title}</h4>
+                      </div>
+                    </div>
+
+
+                  ))}
+                </div>
+              }
             </div>
+
 
             <div className='flex items-center md:gap-x-10 gap-x-2 relative'>
               <div ref={logRafs} className='cursor-pointer'>
@@ -91,41 +139,41 @@ const Hedars = (i) => {
 
                 <FaCartArrowDown />
               </div>
-                <div className='' ref={carstikiref}>
+              <div className='' ref={carstikiref}>
                 {cart && <div className='w-[360px] border-2 border-[#F0F0F0] absolute top-[48px] left-[-250px] z-50'>
-                {cartinfo.map((item) => (
-                  <>
-                    <div className=' flex justify-between items-center bg-[#F5F5F3] py-5 px-5'>
-                      <div>
-                        <img className='w-[80px] h-[80px]' src={item.thumbnail} alt='cartimg' />
+                  {cartinfo.map((item) => (
+                    <>
+                      <div className=' flex justify-between items-center bg-[#F5F5F3] py-5 px-5'>
+                        <div>
+                          <img className='w-[80px] h-[80px]' src={item.thumbnail} alt='cartimg' />
+                        </div>
+                        <div>
+                          <h4>{item.title}</h4>
+                          <h4>${item.price}</h4>
+                        </div>
+                        <div onClick={() => dispatch(productremove(i))}>
+                          <ImCross />
+                        </div>
                       </div>
-                      <div>
-                        <h4>{item.title}</h4>
-                        <h4>${item.price}</h4>
-                      </div>
-                      <div onClick={()=>dispatch(productremove(i))}>
-                      <ImCross />
-                      </div>
+                    </>
+
+                  ))}
+
+                  <div className='py-5 px-5 bg-[#dad1d1]'>
+                    <p className='text-[#141313] pb-4'>Subtotal: <span>${totalPrice}</span></p>
+                    <div className=' flex justify-between'>
+                      <Link to={'/bilingcard'}>
+                        <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>View Cart</button>
+                      </Link>
+                      <Link to={'/checkout'}>
+                        <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>Checkout</button>
+                      </Link>
+
                     </div>
-                  </>
-
-                ))}
-
-                <div className='py-5 px-5 bg-[#dad1d1]'>
-                  <p className='text-[#141313] pb-4'>Subtotal: <span>${totalPrice}</span></p>
-                  <div className=' flex justify-between'>
-                    <Link to={'/bilingcard'}>
-                    <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>View Cart</button>
-                    </Link>
-                    <Link to={'/checkout'}>
-                    <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>Checkout</button>
-                    </Link>
-                    
                   </div>
-                </div>
-              </div>}
-                </div>
-             
+                </div>}
+              </div>
+
               {login && <div className='w-[200px] absolute top-[48px] left-[-190px] z-50'>
                 <ul className='text-center border-2 border-[#F0F0F0]'>
                   <li className=' bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'>My Account</li>
