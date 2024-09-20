@@ -3,6 +3,7 @@ import Container from '../Container'
 import copylog from '../../assets/OREBI©.png'
 import { TiSocialFacebook } from "react-icons/ti";
 import { CiLinkedin,CiInstagram  } from "react-icons/ci";
+import BackTop from '../BacktoTop/BackTop';
 const Footer = () => {
   return (
     <>
@@ -67,6 +68,9 @@ const Footer = () => {
         </div>
     </div>
     </Container>
+    <div className=''>
+        <BackTop/>
+    </div>
     </div>
     
     </>
