@@ -64,7 +64,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h5 className='font-sans font-normal text-[14px] leading-[23px] text-[#6D6D6D]'>2020 Orebi Minimal eCommerce Figma Template by Adveits</h5>
+            <h5 className='font-sans font-normal text-[14px] leading-[23px] text-[#6D6D6D]'>2024 Orebi Minimal eCommerce Figma Template by Adveits</h5>
         </div>
     </div>
     </Container>

@@ -73,9 +73,9 @@ const handleallproduct = () =>{
             {catagorys== true ?  <FaMinus />:<FaPlus />}
           </div>
           {catagorys &&  <ul>
-            <li className='cursor-pointer' onClick={handleallproduct}>All Prodact</li>
+            <li className='cursor-pointer py-4 border-b-2' onClick={handleallproduct}>All Prodact</li>
             {categorys.map((citem)=>(
-                <li className='cursor-pointer' onClick={()=>handlecategory(citem)}>{citem}</li>
+                <li className='cursor-pointer py-4 border-b-2' onClick={()=>handlecategory(citem)}>{citem}</li>
             ))}
            
            
@@ -91,7 +91,7 @@ const handleallproduct = () =>{
               </div>
               {brand &&    <ul>
                 {catebarnd.map((pitem)=>(
-                     <li className='cursor-pointer'  onClick={()=>handelbrand(pitem)}>{pitem}</li>
+                     <li className='cursor-pointer py-4 border-b-2 last:border-none'  onClick={()=>handelbrand(pitem)}>{pitem}</li>
                 ))}
            
               </ul>}
