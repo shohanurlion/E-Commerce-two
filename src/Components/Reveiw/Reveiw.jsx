@@ -6,7 +6,8 @@ const Reveiw = ({singelProduct}) => {
 
   return (
     <>
-      <div className="flex items-center gap-x-[62px] ">
+    <div className='px-4 lg:px-0'>
+    <div className="flex items-center gap-x-[62px]">
         <div>
           <h4 className='font-dm-sans font-normal text-xl text-[#767676] leading-[29px]'>Description</h4>
         </div>
@@ -71,6 +72,7 @@ const Reveiw = ({singelProduct}) => {
           </div>
         </form>
       </div>
+    </div>
     </>
   );
 };

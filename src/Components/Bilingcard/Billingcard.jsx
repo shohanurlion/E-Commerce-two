@@ -4,6 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useDispatch, useSelector } from 'react-redux';
 import { productdecrement, productIncrement, productremove } from '../Slice/ProductSlice';
+import { Link } from 'react-router-dom';
 
 const Billingcard = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,9 @@ const Billingcard = () => {
   return (
     <>
       <Container>
-        <div className="my-5">
+        <div className="my-5 px-4 lg:px-0">
           <h3 className="text-[18px] md:text-[24px] font-bold">Cart</h3>
-          <p>Home &gt; Cart</p>
+          <p><Link to={'/shop'}>Shoping</Link> &gt; <span className='text-[red]'>Cart</span></p>
         </div>
 
         <div className="w-full border-2 border-[#F0F0F0] my-10">

@@ -176,7 +176,7 @@ const handlesearchproduct =(id)=>{
 
               {login && <div className='w-[200px] absolute top-[48px] left-[-150px] lg:left-[-190px] z-50'>
                 <ul className='text-center border-2 border-[#F0F0F0]'>
-                  <li className=' bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'>My Account</li>
+                  <li className=' bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'><Link to={'/account'}>My Account</Link></li>
                   <li className='bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'>Log Out</li>
                 </ul>
               </div>}
