@@ -12,6 +12,9 @@ const Banner = () => {
     dots: true,
     infinite: true,
     arrows:false,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 3000,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -47,16 +50,16 @@ const Banner = () => {
     <div className='w-[100%]'>
     <Slider {...settings}>
     <div className=''>
-            <img src={bannerimg} alt='bannerimg'/>
+            <img src={bannerimg} alt='bannerimg' className='w-full'/>
         </div>
         <div className=''>
-            <img src={bannerimg} alt='bannerimg'/>
+            <img src={bannerimg} alt='bannerimg' className='w-full'/>
         </div>
         <div className=''>
-            <img src={bannerimg} alt='bannerimg'/>
+            <img src={bannerimg} alt='bannerimg' className='w-full'/>
         </div>
         <div className=''>
-            <img src={bannerimg} alt='bannerimg'/>
+            <img src={bannerimg} alt='bannerimg' className='w-full'/>
         </div>
     </Slider>
        

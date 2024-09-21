@@ -30,14 +30,14 @@ const Navbars = () => {
   return (
     <>
     <header  className={isSticky ? 'navbar sticky' : 'navbar'}>
-    <div className='py-5'>
+    <div className='py-2 md:py-5 px-4'>
       <Container>
         <div className='flex items-center justify-between'>
           <div className=' md:py-0 py-4'>
           <Link to="/"><img src={log} alt='log'/></Link>
           </div>
           <div className=''>
-            <ul className={`lg:flex md:gap-x-8 md:mt-0 mt-2 absolute top-0 left-0 lg:static ${isToggled ? "top-[70px] bg-white lg:bg-transparent w-full text-center duration-500 ease-in-out":"top-[-200px] bg-white lg:bg-transparent w-full text-center duration-500 ease-in-out"}`}>
+            <ul className={`lg:flex md:gap-x-8 md:mt-0 mt-2 absolute top-0 left-0 lg:static ${isToggled ? "top-[56px] bg-white lg:bg-transparent w-full text-center duration-500 ease-in-out z-50":"top-[-200px] bg-white lg:bg-transparent w-full text-center duration-500 ease-in-out z-50"}`}>
 
               <li className='text-[18px] md:pb-0 pb-2 font-normal leading-[18px] py-3 lg:py-0 text-[#767676] duration-500 ease-in-out hover:text-[#262626]'><Link to="/">Home</Link></li>
 

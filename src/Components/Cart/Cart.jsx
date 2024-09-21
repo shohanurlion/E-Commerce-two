@@ -14,7 +14,7 @@ const addTocart=(item)=>{
     {cateFilter.length > 0 ?
     <div className='flex justify-center md:flex md:justify-between flex-wrap'>
     {cateFilter.map((item)=>(
-      <div className='w-[100%] md:w-[40%] lg:w-[32%] relative group cursor-pointer my-8'>
+      <div className='w-[100%] md:w-[40%] lg:w-[32%] relative group cursor-pointer my-8 px-[15px] md:px-0'>
        
         <div>
         <Link to={`/shop/${item.id}`}>
@@ -57,7 +57,7 @@ const addTocart=(item)=>{
     ))}
     </div>:   <div className='flex justify-center md:flex md:justify-between flex-wrap'>
     {allpage.map((item)=>(
-      <div className='w-[100%] md:w-[40%] lg:w-[32%] relative group cursor-pointer my-8'>
+      <div className='w-[100%] md:w-[40%] lg:w-[32%] relative group cursor-pointer my-8 px-[15px] md:px-0'>
         
         <div>
         <Link to={`/shop/${item.id}`}>

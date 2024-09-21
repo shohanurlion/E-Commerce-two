@@ -79,13 +79,13 @@ const handlesearchproduct =(id)=>{
 }
   return (
     <>
-      <div className='py-5 px-2 mt-14'>
+      <div className='w-[100%] py-5 px-2 mt-14'>
         <Container>
           <div className='flex justify-between items-center'>
             <div className='relative'>
-              <div ref={useRafs} className='flex items-center gap-x-4 cursor-pointer'>
+              <div ref={useRafs} className='flex items-center gap-x-1 lg:gap-x-4 cursor-pointer'>
                 <FaBarsStaggered />
-                <h4>Shop by Category</h4>
+                <h4 className='text-[14px] lg:text-[20px]'>Shop by Category</h4>
               </div>
               {category && <div className='w-[260px] bg-black absolute top-[46px] text-white z-50'>
                 <ul>
@@ -104,7 +104,7 @@ const handlesearchproduct =(id)=>{
             <div className='w-2/4 relative'>
               <div className='relative'>
                 <input onChange={handelsearch} type='text' placeholder='Search Products...' value={searchcange} className='w-[100%] border py-2 px-2' />
-                <div className=' absolute top-[50%] translate-y-[-50%] right-10'>
+                <div className=' absolute top-[50%] translate-y-[-50%] right-2 md:right-10'>
                   <FaSearch />
                 </div>
               </div>
@@ -140,7 +140,7 @@ const handlesearchproduct =(id)=>{
                 <FaCartArrowDown />
               </div>
               <div className='' ref={carstikiref}>
-                {cart && <div className='w-[360px] border-2 border-[#F0F0F0] absolute top-[48px] left-[-250px] z-50'>
+                {cart && <div className='w-[360px] border-2 border-[#F0F0F0] absolute top-[48px] left-[-315px] lg:left-[-250px] z-50'>
                   {cartinfo.map((item) => (
                     <>
                       <div className=' flex justify-between items-center bg-[#F5F5F3] py-5 px-5'>
@@ -163,10 +163,10 @@ const handlesearchproduct =(id)=>{
                     <p className='text-[#141313] pb-4'>Subtotal: <span>${totalPrice}</span></p>
                     <div className=' flex justify-between'>
                       <Link to={'/bilingcard'}>
-                        <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>View Cart</button>
+                        <button className='py-[5px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>View Cart</button>
                       </Link>
                       <Link to={'/checkout'}>
-                        <button className='py-[16px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>Checkout</button>
+                        <button className='py-[5px] px-[40px] border-2 border-[#2B2B2B] hover:bg-[#262626] hover:text-white duration-700 ease-in-out'>Checkout</button>
                       </Link>
 
                     </div>
@@ -174,7 +174,7 @@ const handlesearchproduct =(id)=>{
                 </div>}
               </div>
 
-              {login && <div className='w-[200px] absolute top-[48px] left-[-190px] z-50'>
+              {login && <div className='w-[200px] absolute top-[48px] left-[-150px] lg:left-[-190px] z-50'>
                 <ul className='text-center border-2 border-[#F0F0F0]'>
                   <li className=' bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'>My Account</li>
                   <li className='bg-white px-5 py-4 hover:bg-black hover:text-white duration-700 ease-in-out cursor-pointer'>Log Out</li>

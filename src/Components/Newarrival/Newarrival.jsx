@@ -57,51 +57,61 @@ const Newarrival = () => {
     dispatch(addToCart({ ...item, qun: 1 }));
   }
   return (
+    <>
+    <div className='overflow-x-hidden'>
     <Container>
-      <div className='text-center'>
-        <h2 className='font-bold text-3xl sm:text-4xl md:text-5xl leading-tight'>New Arrivals</h2>
-      </div>
-      <Slider {...settings}>
-        {alldata.map((items, index) => (
-          <div key={index} className='px-2 sm:px-3'>
-            <Link  to={`/shop/${items.id}`}>
-            <div className='relative group cursor-pointer my-4'>
-              <div>
-                <img src={items.thumbnail} alt='product-img' className='w-full h-auto' />
-              </div>
-              <div className='absolute bottom-0 left-0 w-full h-0 overflow-hidden group-hover:h-[280px] duration-700 ease-in-out'>
-                <div className='flex justify-end'>
-                  <div className='py-5 px-3'>
-                    <div onClick={heartlist} className='flex items-center gap-2 sm:gap-3 py-3 hover:text-red-500 duration-500 ease-in-out'>
-                      <h5 className='text-xs sm:text-sm'>Add to Wish List</h5>
-                     {heart === true ?  <FaHeart />:<CiHeart />}
-                    </div>
-                    <div className='flex justify-end py-3 hover:text-red-500 duration-500 ease-in-out'>
-                      <VscDebugRestart />
-                    </div>
-                    <div onClick={()=>homecarthandel(items)} className='flex items-center justify-end gap-2 sm:gap-3 py-3 hover:text-red-500 duration-500 ease-in-out'>
-                      <h5 className='text-xs sm:text-sm'>Add to Cart</h5>
-                      <FaCartArrowDown />
-                    </div>
-                  </div>
+        <h1 className='text-[39px] font-bold font-sans px-3 md:px-0'>New Arrivals</h1>
+        <Slider {...settings}>
+        {alldata.map((infos)=>(
+         <div className='w-[24%] px-5'>
+            <div className=' relative group'>
+                <div className='bg-black text-center w-[100px] absolute top-[10px] left-[10px]'>
+                    <h4 className='text-white font-bold text-[14px] py-2'>-{infos.discountPercentage}</h4>
                 </div>
-              </div>
-
-              <div className='flex flex-col sm:flex-row justify-between py-4 px-2 sm:px-4 bg-black text-white'>
+                <Link  to={`/shop/${infos.id}`}>
                 <div>
-                  <h4 className='pb-1 text-sm sm:text-base'>{items.title}</h4>
-                  <p className='text-xs sm:text-sm'>Category: {items.category}</p>
+                <img src={infos.thumbnail} alt='Newimg' className='w-[100%]'/>
                 </div>
-                <div>
-                  <p className='text-xs sm:text-sm'>Price: ${items.price}</p>
+                </Link>
+            <div className='flex justify-end py-0 px-4 absolute bottom-0 left-0 w-full bg-[#FFFFFF] h-[0px] duration-700 ease-in-out overflow-hidden group-hover:h-[120px] cursor-pointer'>
+            <div className=''>
+                    <div onClick={heartlist} className='flex items-center justify-end gap-x-2 pt-4'>
+                        <h4 className='text-[16px] text-[#767676] font-normal font-sans leading-[20px]'>Add to Wish List</h4>
+                        {heart === true ?  <FaHeart />:<CiHeart />}
+                    </div>
+                    <div className='flex items-center justify-end gap-x-2 py-4'>
+                        <h4>Compear</h4>
+                        <VscDebugRestart/>
+                    </div>
+                 
+                    <div onClick={()=>homecarthandel(infos)} className='flex items-center justify-end gap-x-2 pb-10'>
+                        <h4 className='text-[16px] text-[#262626] font-bold font-sans leading-[20px]'>Add to Wish List</h4>
+                        <FaCartArrowDown />
+                    </div>
                 </div>
-              </div>
             </div>
-            </Link>
-          </div>
+            </div>
+           
+            <div className='bg-[black] px-4 py-2'>
+                <div className='flex items-center justify-between py-2'>
+                    <h3 className='text-[14px] lg:text-[18px] text-[#ffffff] font-bold font-sans leading-[26px]'>{infos.title}</h3>
+                    <p className='text-[14px] lg:text-[18px] text-[#ffffff] font-normal font-sans leading-[30px]'>${infos.price}</p>
+                </div>
+                <span className='text-[14px] lg:text-[18px] text-[#ffffff] font-normal font-sans leading-[30px]'>{infos.category}</span>
+            </div>
+        </div>
+         
         ))}
-      </Slider>
+        </Slider>
+        
+     
+       
     </Container>
+    </div>
+ 
+    
+    </>
+
   );
 }
 
