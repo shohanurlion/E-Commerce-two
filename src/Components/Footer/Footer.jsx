@@ -9,7 +9,7 @@ const Footer = () => {
     <>
     <div className='bg-[#F5F5F3]'>
     <Container>
-    <div className='flex justify-between pt-9'>
+    <div className='xl:flex justify-between pt-9'>
         <div className='xl:w-[50%] sm:flex justify-center xl:justify-normal gap-x-44'>
             <div className='xl:text-left text-center'>
                 <h3 className='font-sans font-bold text-[16px] leading-[23px] text-[#262626] pb-4'>MENU</h3>
