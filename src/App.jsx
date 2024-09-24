@@ -17,6 +17,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Loging from './Loging/Loging';
 import Signup from './Components/Signup/Signup';
 import Account from './Components/Account/Account';
+import Selectwish from './Allwishlist/Selectwish';
 
 
 
@@ -36,6 +37,7 @@ function App() {
     <Route path='/login' element={<Loging/>}/>
     <Route path='/signup' element={<Signup/>}/>
     <Route path='/account' element={<Account/>}/>
+    <Route path='/wishlist' element={<Selectwish/>}/>
   </Route>
  ))   
 

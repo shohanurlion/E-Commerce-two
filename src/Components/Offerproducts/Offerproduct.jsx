@@ -3,6 +3,7 @@ import bgImage from '../../assets/Ad_1.png'
 import bgImage2 from '../../assets/Ad_2.png'
 import bgImage3 from '../../assets/Ad_3.png'
 import Container from '../Container'
+import Wishlist from '../WishList/Wishlist'
 const Offerproduct = () => {
   return (
    <>
@@ -22,6 +23,7 @@ const Offerproduct = () => {
        
         </div>
     </div>
+    <Wishlist/>
         </Container>
    </div>
    </>
